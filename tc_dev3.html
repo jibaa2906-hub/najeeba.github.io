@@ -1,1 +1,55 @@
-test
+<html>
+  <style>
+    .site-cos .slds-visual-picker-select .slds-visual-picker__figure svg {
+        width: 43px;
+        height: 40px;
+        fill: #fff;
+        stroke: #002a42;
+    }
+    fieldset div.slds-form-element__control {
+        display: flex;
+        -webkit-box-orient: horizontal;
+        flex-flow: row wrap;
+    }
+    .site-cos .slds-visual-picker__container {
+        margin-right: 1rem;
+        margin-bottom: 20px;
+    }
+  </style>
+<script src="https://transformcambodia.my.site.com/sponsor/lightning/lightning.out.js"></script>
+  <div id="spinner">
+    Loading...
+  </div>
+<div data-lightning-out="true" class="site-cos"></div>
+<script>
+    const appName='c:LC01_ChildProfileCards';
+    const componentname='c:lwc01_ChildProfileCards';
+    const lightningEndPoint='https://transformcambodia--dev3.sandbox.my.site.com/sponsor';
+    const targetElement=document.querySelector("[data-lightning-out]");
+
+    //Get ALL URL parameters dynamically
+    const urlParams = Object.fromEntries(
+        new URLSearchParams(window.location.search)
+    );
+	
+    // Add defaults / enforced params
+    const componentParams = {
+        launchMode: 'Child',   // always set
+    };
+	
+	$Lightning.use(
+        appName,
+        function () {
+            $Lightning.createComponent(
+                componentname,
+                componentParams,   
+                targetElement,
+                function (cmp) {
+                    document.getElementById("spinner").innerHTML = "";
+                }
+            );
+        },
+        lightningEndPoint
+    );
+</script>
+</html>
